@@ -4,16 +4,13 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 
 // First Build for Public meetup — Sunday, 5 July 2026, The Ruai Room, KL.
-// Photos live in /public/events/meetup-1. Landscape shots lead the grid.
+// Photos live in /public/events/meetup-1. Four shots, deliberately different:
+// the whole room, the work up close, the room mid-session, and the group selfie.
 const PHOTOS = [
-  { src: "/events/meetup-1/meetup1-01.webp", alt: "The full table of builders at the first Build for Public meetup, banner behind them", span: true },
-  { src: "/events/meetup-1/meetup1-03.webp", alt: "Group selfie down the length of the table", span: true },
-  { src: "/events/meetup-1/meetup1-05.webp", alt: "Laptops, coffee and stickers spread across the table while people work" },
-  { src: "/events/meetup-1/meetup1-07.webp", alt: "A volunteer walking the room through a project on screen" },
-  { src: "/events/meetup-1/meetup1-08.webp", alt: "Two builders pair-working on an NGO site" },
-  { src: "/events/meetup-1/meetup1-04.webp", alt: "The group at the end of the day, laptops still open" },
-  { src: "/events/meetup-1/meetup1-02.webp", alt: "Everyone turning to the camera mid-session at the long shared table", span: true },
-  { src: "/events/meetup-1/meetup1-06.webp", alt: "Wide view of the venue, Build for Public banner by the window", span: true },
+  { src: "/events/meetup-1/meetup1-01.webp", alt: "The whole table of builders at the first Build for Public meetup, banner behind them" },
+  { src: "/events/meetup-1/meetup1-08.webp", alt: "Two builders heads-down on an NGO site, laptops open" },
+  { src: "/events/meetup-1/meetup1-07.webp", alt: "The room mid-session, someone walking everyone through a project" },
+  { src: "/events/meetup-1/meetup1-03.webp", alt: "Group selfie down the length of the table at the end of the day" },
 ];
 
 const STATS = [
@@ -164,22 +161,20 @@ export default function MeetupRecap() {
         </div>
 
         {/* ── Photos ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-16">
           {PHOTOS.map((p, i) => (
             <button
               key={p.src}
               onClick={() => setOpen(i)}
               aria-label={`Open photo: ${p.alt}`}
-              className={`relative block overflow-hidden border-2 border-black transition-transform hover:-translate-y-0.5 ${
-                p.span ? "col-span-2 aspect-[4/3]" : "aspect-[3/4]"
-              }`}
+              className="relative block aspect-[4/3] overflow-hidden border-2 border-black transition-transform hover:-translate-y-0.5"
             >
               <Image
                 src={p.src}
                 alt={p.alt}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </button>
           ))}
