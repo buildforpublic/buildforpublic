@@ -433,6 +433,7 @@ export default defineSchema({
     whoFor: v.string(),
     website: v.string(),
     codeLink: v.optional(v.string()),
+    codeLabel: v.optional(v.string()),
     accentBg: v.string(),
     image: v.optional(v.string()),
     order: v.optional(v.number()),

@@ -10,6 +10,7 @@ import Projects from "@/app/components/sections/Projects";
 import WeLove from "@/app/components/sections/WeLove";
 import Invitation from "@/app/components/sections/Invitation";
 import Events from "@/app/components/sections/Events";
+import MeetupRecap from "@/app/components/sections/MeetupRecap";
 import LandingFooter from "@/app/components/sections/LandingFooter";
 
 export const dynamic = "force-dynamic";
@@ -43,6 +44,7 @@ export default function Home() {
       <TheSolution />
       <WhoShowsUp />
       <Events />
+      <MeetupRecap />
       <WhatWeDo />
       <WhatWeBelieve />
       <Projects />
